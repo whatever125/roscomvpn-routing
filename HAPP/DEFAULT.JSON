@@ -1,5 +1,5 @@
 {
-  "Name": "RoscomVPN",
+  "Name": "RoscomVPN RU+CN",
   "GlobalProxy": "true",
   "UseChunkFiles": "true",
   "RemoteDns": "8.8.8.8",
@@ -10,9 +10,9 @@
   "DomesticDNSType": "DoH",
   "DomesticDNSDomain": "https://77.88.8.8/dns-query",
   "DomesticDNSIP": "77.88.8.8",
-  "Geoipurl": "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geoip@202609040756/release/geoip.dat",
-  "Geositeurl": "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite@202604152235/release/geosite.dat",
-  "LastUpdated": "1788508640",
+  "Geoipurl": "https://cdn.jsdelivr.net/gh/whatever125/rucn-geoip@release/geoip.dat",
+  "Geositeurl": "https://cdn.jsdelivr.net/gh/whatever125/rucn-geosite@release/geosite.dat",
+  "LastUpdated": "1788579363",
   "DnsHosts": {
     "lkfl2.nalog.ru": "213.24.64.175",
     "lknpd.nalog.ru": "213.24.64.181"
@@ -21,6 +21,7 @@
   "DirectSites": [
     "geosite:private",
     "geosite:category-ru",
+    "geosite:category-cn",
     "geosite:whitelist",
     "geosite:microsoft",
     "geosite:apple",
@@ -34,7 +35,8 @@
   ],
   "DirectIp": [
     "geoip:private",
-    "geoip:direct"
+    "geoip:direct",
+    "geoip:cn"
   ],
   "ProxySites": [
     "geosite:google-play",
