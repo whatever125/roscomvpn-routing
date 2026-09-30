@@ -78,7 +78,7 @@ eyJOYW1lIjoiUm9zY29tVlBOIFJVK0NOIiwiR2xvYmFsUHJveHkiOiJ0cnVlIiwiVXNlQ2h1bmtGaWxl
 <table width="100%">
 <thead><tr><th align="left">Способ</th><th align="left">Ссылка</th><th align="left">Описание</th></tr></thead>
 <tbody>
-<tr><td colspan="3"><b>DEFAULT</b> — полный профиль: RU/BY/CN direct, YouTube/Telegram/GitHub через прокси, реклама блокируется</td></tr>
+<tr><td colspan="3"><b>DEFAULT</b> — полный профиль: RU/BY/CN direct, Google/YouTube/Telegram/Twitch/Pinterest/GitHub через прокси, реклама блокируется</td></tr>
 <tr><td>🔗 DEFAULT.DEEPLINK</td><td><a href="https://raw.githubusercontent.com/whatever125/roscomvpn-routing/refs/heads/main/HAPP/DEFAULT.DEEPLINK">Просмотр</a></td><td>Диплинк-ссылка в текстовом формате</td></tr>
 <tr><td>📊 DEFAULT.JSON</td><td><a href="https://raw.githubusercontent.com/whatever125/roscomvpn-routing/refs/heads/main/HAPP/DEFAULT.JSON">Просмотр</a></td><td>JSON-конфиг роутинга</td></tr>
 <tr><td colspan="3"><b>WHITELIST</b> — direct только для сервисов и IP из белых списков РФ; всё остальное через прокси</td></tr>
@@ -95,7 +95,7 @@ eyJOYW1lIjoiUm9zY29tVlBOIFJVK0NOIiwiR2xvYmFsUHJveHkiOiJ0cnVlIiwiVXNlQ2h1bmtGaWxl
 <table width="100%">
 <thead><tr><th align="left">Способ</th><th align="left">Ссылка</th><th align="left">Описание</th></tr></thead>
 <tbody>
-<tr><td colspan="3"><b>DEFAULT</b> — полный профиль: RU/BY/CN direct, YouTube/Telegram/GitHub через прокси, реклама блокируется</td></tr>
+<tr><td colspan="3"><b>DEFAULT</b> — полный профиль: RU/BY/CN direct, Google/YouTube/Telegram/Twitch/Pinterest/GitHub через прокси, реклама блокируется</td></tr>
 <tr><td>🔗 DEFAULT.DEEPLINK</td><td><a href="https://raw.githubusercontent.com/whatever125/roscomvpn-routing/refs/heads/main/INCY/DEFAULT.DEEPLINK">Просмотр</a></td><td>Диплинк-ссылка в текстовом формате</td></tr>
 <tr><td>📊 DEFAULT.JSON</td><td><a href="https://raw.githubusercontent.com/whatever125/roscomvpn-routing/refs/heads/main/INCY/DEFAULT.JSON">Просмотр</a></td><td>JSON-конфиг роутинга</td></tr>
 <tr><td colspan="3"><b>WHITELIST</b> — direct только для сервисов и IP из белых списков РФ; всё остальное через прокси</td></tr>
@@ -140,6 +140,7 @@ eyJOYW1lIjoiUm9zY29tVlBOIFJVK0NOIiwiR2xvYmFsUHJveHkiOiJ0cnVlIiwiVXNlQ2h1bmtGaWxl
 - ➕ Русские/белорусские CIDR-диапазоны из трёх независимых геобаз: GeoLite2 (MaxMind), IPinfo, DB-IP
 - ➕ Кастомный список IP-диапазонов "казенных" VK Company, Yandex, CDNVideo (включая их зарубежные активы)
 - ➕ CIDR Apple Push-уведомлений (решение проблем с доставкой уведомлений на iOS устройствах)
+- ➕ **`geoip:telegram`** — официальные CIDR Telegram (IPv4+IPv6), Telegram-трафик гарантированно идёт через прокси в Китае
 - ➕ **`geoip:cn`** — китайские CIDR из [misakaio/chnroutes2](https://github.com/misakaio/chnroutes2) (~3900 диапазонов, обновляется при каждой сборке напрямую с апстрима)
 - ➖ DIFF-исключение списков: [Re:filter](https://github.com/1andrevich/Re-filter-lists) + [Antifilter.Network](https://antifilter.network) (для разблокировки РКН-списков)
 - ➖ DIFF-исключение Community-списков: [Re:filter](https://github.com/1andrevich/Re-filter-lists) + [Antifilter.Network](https://antifilter.network) + [Antifilter.Download](https://antifilter.download) (для проблемных/не работающих, НЕ заблокированных сервисов — 4pda, CloudFlare, аниме и др.)
@@ -154,6 +155,7 @@ eyJOYW1lIjoiUm9zY29tVlBOIFJVK0NOIiwiR2xvYmFsUHJveHkiOiJ0cnVlIiwiVXNlQ2h1bmtGaWxl
 - **Обновленные списки сервисов** — максимально оптимизированы под этот роутинг + дедупликация
 - **Минималистичный подход** — то, чего нет в конфиге роутинга, выпилено с корнем
 - **Облегченные списки** — разгружают ядро от фильтрации мусора и include-редиректов
+- **`google`** — самодостаточная категория Google (`google.com`, `gstatic.com`, `googleapis.com` и др.) для проксирования в Китае
 - **`category-cn`** — прямой роутинг китайских доменов через `include:cn` на собственную курируемую категорию [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community) (банки, СМИ, разработка, ~8.7k доменов) вместо сырого дампа [felixonmars/dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list) (~111k доменов) — тот же принцип минимализма, что уже применялся к `category-ru`. На практике: `geosite.dat` **~2.0 МБ → ~0.7 МБ**, что важно на мобильных устройствах — Happ парсит и матчит этот файл прямо на телефоне, где память ограничена.
 
 </details>
@@ -185,8 +187,6 @@ eyJOYW1lIjoiUm9zY29tVlBOIFJVK0NOIiwiR2xvYmFsUHJveHkiOiJ0cnVlIiwiVXNlQ2h1bmtGaWxl
 <tr><td>✅ <b>Все банки РФ</b></td><td>Вытащены с сайта ЦБ РФ + собрано саморезолвингом, включая зарубежные домены</td></tr>
 <tr><td>✅ <b>Игровые платформы</b></td><td>Steam, Epic Games, Riot Games, Escape from Tarkov — экономия трафика + проблемы через прокси</td></tr>
 <tr><td>✅ <b>Faceit</b></td><td>Фикс для РФ игроков, увеличиваем количество доступных локаций серверов</td></tr>
-<tr><td>✅ <b>Twitch</b></td><td>Экономия трафика сервера</td></tr>
-<tr><td>✅ <b>Pinterest</b></td><td>Блокировка рекламы на сервисе</td></tr>
 </tbody>
 </table>
 
@@ -195,9 +195,11 @@ eyJOYW1lIjoiUm9zY29tVlBOIFJVK0NOIiwiR2xvYmFsUHJveHkiOiJ0cnVlIiwiVXNlQ2h1bmtGaWxl
 <table width="100%">
 <thead><tr><th align="left">Что</th><th align="left">Зачем</th></tr></thead>
 <tbody>
-<tr><td>🌐 <b>Google Play/Android</b></td><td>Борьба с ТСПУ и банами РКН</td></tr>
-<tr><td>🌐 <b>YouTube</b></td><td>Борьба с ТСПУ и банами РКН</td></tr>
-<tr><td>🌐 <b>Telegram</b></td><td>Борьба с ТСПУ и банами РКН</td></tr>
+<tr><td>🌐 <b>Google</b></td><td>Заблокирован в Китае: <code>geosite:google</code> (google.com, gstatic.com, googleapis.com и др.) + <code>geosite:google-play</code></td></tr>
+<tr><td>🌐 <b>YouTube</b></td><td>Заблокирован в Китае: googlevideo.com, ggpht.com и вся инфраструктура (<code>geosite:youtube</code>)</td></tr>
+<tr><td>🌐 <b>Telegram</b></td><td>Заблокирован в Китае: домены + <code>geoip:telegram</code> (официальные CIDR)</td></tr>
+<tr><td>🌐 <b>Twitch</b></td><td>Заблокирован в Китае (перенесён из DIRECT)</td></tr>
+<tr><td>🌐 <b>Pinterest</b></td><td>Заблокирован в Китае (перенесён из DIRECT)</td></tr>
 <tr><td>🌐 <b>GitHub</b></td><td>Борьба с ТСПУ и банами РКН</td></tr>
 <tr><td>🌐 <b>Twitch-ads</b></td><td>Возвращаем полное качество (Source) стримов с блокировкой рекламы</td></tr>
 <tr><td>🌐 <b>Весь остальной интернет</b></td><td>Все, чего нет в других списках, включая все зарубежные CDN</td></tr>
@@ -212,7 +214,7 @@ eyJOYW1lIjoiUm9zY29tVlBOIFJVK0NOIiwiR2xvYmFsUHJveHkiOiJ0cnVlIiwiVXNlQ2h1bmtGaWxl
 <thead><tr><th align="center">Назначение</th><th align="left">Сервер</th><th align="left">Зачем</th></tr></thead>
 <tbody>
 <tr><td align="center">🏠 Domestic (direct)</td><td><a href="https://www.alidns.com/">AliDNS (Alibaba)</a> <code>223.5.5.5</code> (DoH)</td><td>Доступен и быстр из Китая. Прежний Yandex DoH <code>77.88.8.8</code> из CN недоступен — на нём зависал каждый несброшенный резолв (~8.4&nbsp;с)</td></tr>
-<tr><td align="center">🌍 Remote (proxy)</td><td><a href="https://1.1.1.1/">Cloudflare DNS</a> <code>1.1.1.1</code> (DoH)</td><td>Резолвинг-DNS для проксируемого трафика, DoH поверх туннеля</td></tr>
+<tr><td align="center">🌍 Remote (proxy)</td><td><a href="https://91.132.161.163:8443/dns-query">senko2 AdGuard Home</a> <code>91.132.161.163:8443</code> (DoH, Let's Encrypt IP-SAN)</td><td>Резолвинг-DNS для проксируемого трафика, DoH поверх туннеля. Firewall 8443 разрешает только выходы senko2/senko1; при выходе через mchost DoH недоступен — используйте выход senko2 (основной) или senko1</td></tr>
 </tbody>
 </table>
 
