@@ -6,7 +6,7 @@
 # Режим:       rule
 # Инбаунды:    TUN (system, strict-route), mixed-port 7890
 #              Приватные и зарезервированные IP исключены из TUN и сниффера
-# DNS:         fake-ip, Yandex DNS (direct) + Google DNS (proxy)
+# DNS:         fake-ip, AliDNS 223.5.5.5 (direct) + Cloudflare 1.1.1.1 (proxy)
 #              IPv6 в DNS отключён, весь IPv6-трафик ядра блокируется на уровне правил
 #
 # Группы прокси:
@@ -79,16 +79,16 @@ dns:
   fake-ip-filter:
     - rule-set:private-domains # исключить из fake-ip приватные домены
   default-nameserver:
-    - https://77.88.8.8/dns-query
-    - https://8.8.8.8/dns-query
+    - https://223.5.5.5/dns-query
+    - https://1.1.1.1/dns-query
   proxy-server-nameserver:
-    - https://77.88.8.8/dns-query
-    - https://8.8.8.8/dns-query
+    - https://223.5.5.5/dns-query
+    - https://1.1.1.1/dns-query
   direct-nameserver:
-    - https://77.88.8.8/dns-query
-    - https://8.8.8.8/dns-query
+    - https://223.5.5.5/dns-query
+    - https://1.1.1.1/dns-query
   nameserver:
-    - https://8.8.8.8/dns-query#PROXY
+    - https://1.1.1.1/dns-query#PROXY
 sniffer:
   enable: true
   override-destination: false
@@ -359,6 +359,22 @@ rule-providers:
     path: ./ruleset/telegram.mrs
     proxy: ⚡️ Авто
     interval: 86400
+  google:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs
+    path: ./ruleset/google.mrs
+    proxy: ⚡️ Авто
+    interval: 86400
+  telegram-ips:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.mrs
+    path: ./ruleset/telegram-ips.mrs
+    proxy: ⚡️ Авто
+    interval: 86400
   win-spy:
     type: http
     behavior: domain
@@ -424,9 +440,11 @@ rules:
 
   # --- Сервисы через PROXY ---
   - RULE-SET,google-play,PROXY
+  - RULE-SET,google,PROXY                          # Google-домены (вкл. google.com) — через PROXY
   - RULE-SET,twitch-ads,PROXY                      # домены Twitch Ads — через PROXY (фикс качества)
   - RULE-SET,youtube,📺 Youtube
   - RULE-SET,telegram,PROXY
+  - RULE-SET,telegram-ips,PROXY                    # Telegram CIDR — через PROXY
   - RULE-SET,github,PROXY
 
   # --- Игровые платформы и сервисы → 🎮 Игры (по умолчанию DIRECT, можно переключить) ---

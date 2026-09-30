@@ -2,17 +2,17 @@
   "Name": "RoscomVPN RU+CN",
   "GlobalProxy": "true",
   "UseChunkFiles": "true",
-  "RemoteDns": "8.8.8.8",
-  "DomesticDns": "77.88.8.8",
+  "RemoteDns": "1.1.1.1",
+  "DomesticDns": "223.5.5.5",
   "RemoteDNSType": "DoH",
-  "RemoteDNSDomain": "https://8.8.8.8/dns-query",
-  "RemoteDNSIP": "8.8.8.8",
+  "RemoteDNSDomain": "https://1.1.1.1/dns-query",
+  "RemoteDNSIP": "1.1.1.1",
   "DomesticDNSType": "DoH",
-  "DomesticDNSDomain": "https://77.88.8.8/dns-query",
-  "DomesticDNSIP": "77.88.8.8",
+  "DomesticDNSDomain": "https://223.5.5.5/dns-query",
+  "DomesticDNSIP": "223.5.5.5",
   "Geoipurl": "https://cdn.jsdelivr.net/gh/whatever125/rucn-geoip@release/geoip.dat",
   "Geositeurl": "https://cdn.jsdelivr.net/gh/whatever125/rucn-geosite@release/geosite.dat",
-  "LastUpdated": "1788579454",
+  "LastUpdated": "1790789799",
   "DnsHosts": {
     "lkfl2.nalog.ru": "213.24.64.175",
     "lknpd.nalog.ru": "213.24.64.181"
@@ -40,12 +40,15 @@
   ],
   "ProxySites": [
     "geosite:google-play",
+    "geosite:google",
     "geosite:github",
     "geosite:twitch-ads",
     "geosite:youtube",
     "geosite:telegram"
   ],
-  "ProxyIp": [],
+  "ProxyIp": [
+    "geoip:telegram"
+  ],
   "BlockSites": [
     "geosite:win-spy",
     "geosite:torrent",
