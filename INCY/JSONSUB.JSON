@@ -12,7 +12,7 @@
   "DomesticDNSIP": "223.5.5.5",
   "Geoipurl": "https://cdn.jsdelivr.net/gh/whatever125/rucn-geoip@release/geoip.dat",
   "Geositeurl": "https://cdn.jsdelivr.net/gh/whatever125/rucn-geosite@release/geosite.dat",
-  "LastUpdated": "1790938700",
+  "LastUpdated": "1791022689",
   "DnsHosts": {
     "lkfl2.nalog.ru": "213.24.64.175",
     "lknpd.nalog.ru": "213.24.64.181"
