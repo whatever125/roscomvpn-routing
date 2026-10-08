@@ -27,7 +27,9 @@
     "geoip:whitelist"
   ],
   "ProxySites": [],
-  "ProxyIp": [],
+  "ProxyIp": [
+    "10.8.1.2/32"
+  ],
   "BlockSites": [
     "geosite:win-spy",
     "geosite:torrent",

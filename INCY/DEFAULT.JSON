@@ -47,7 +47,8 @@
     "geosite:telegram"
   ],
   "ProxyIp": [
-    "geoip:telegram"
+    "geoip:telegram",
+    "10.8.1.2/32"
   ],
   "BlockSites": [
     "geosite:win-spy",
