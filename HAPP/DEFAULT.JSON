@@ -44,11 +44,19 @@
     "geosite:twitch",
     "geosite:pinterest",
     "geosite:youtube",
-    "geosite:telegram"
+    "geosite:telegram",
+    "my.atb.su",
+    "www.my.atb.su",
+    "atb.su",
+    "mobile.atb.su",
+    "ib.atb.su"
   ],
   "ProxyIp": [
     "geoip:telegram",
-    "10.8.1.2/32"
+    "10.8.1.2/32",
+    "62.76.143.25/32",
+    "62.76.120.27/32",
+    "178.248.232.151/32"
   ],
   "BlockSites": [
     "geosite:win-spy",
