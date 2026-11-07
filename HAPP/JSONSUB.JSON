@@ -10,9 +10,9 @@
   "DomesticDNSType": "DoH",
   "DomesticDNSDomain": "https://223.5.5.5/dns-query",
   "DomesticDNSIP": "223.5.5.5",
-  "Geoipurl": "https://cdn.jsdelivr.net/gh/whatever125/rucn-geoip@release/geoip.dat",
-  "Geositeurl": "https://cdn.jsdelivr.net/gh/whatever125/rucn-geosite@release/geosite.dat",
-  "LastUpdated": "1794051394",
+  "Geoipurl": "http://91.132.161.163/geo/geoip.dat",
+  "Geositeurl": "http://91.132.161.163/geo/geosite.dat",
+  "LastUpdated": "1794057373",
   "DnsHosts": {
     "lkfl2.nalog.ru": "213.24.64.175",
     "lknpd.nalog.ru": "213.24.64.181"
