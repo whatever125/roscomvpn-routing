@@ -12,7 +12,7 @@
   "DomesticDNSIP": "223.5.5.5",
   "Geoipurl": "http://91.132.161.163/geo/geoip.dat",
   "Geositeurl": "http://91.132.161.163/geo/geosite.dat",
-  "LastUpdated": "1794057373",
+  "LastUpdated": "1794057408",
   "DnsHosts": {
     "lkfl2.nalog.ru": "213.24.64.175",
     "lknpd.nalog.ru": "213.24.64.181"
