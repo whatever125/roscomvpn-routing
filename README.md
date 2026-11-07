@@ -231,16 +231,15 @@ eyJOYW1lIjoiUm9zY29tVlBOIFJVK0NOIiwiR2xvYmFsUHJveHkiOiJ0cnVlIiwiVXNlQ2h1bmtGaWxl
 ## 🔄 Автообновление
 
 > [!IMPORTANT]
-> Всё живёт только на GitHub — никакого сервера, панели или крона на своей
-> стороне. `Geoipurl`/`Geositeurl` указывают на `@release`-ветки
+> `Geoipurl`/`Geositeurl` указывают на собственное зеркало
+> `http://91.132.161.163/geo/` (senko2). Файлы там ежедневно обновляются
+> systemd-таймером `geo-files-sync.timer` из `@release`-веток
 > [rucn-geoip](https://github.com/whatever125/rucn-geoip) и
-> [rucn-geosite](https://github.com/whatever125/rucn-geosite) (не
-> примороженный тег — всегда свежие, обе ветки принудительно чистят кэш
-> jsDelivr при каждой сборке), поэтому диплинку не нужно обновляться,
-> чтобы получить новые данные.
+> [rucn-geosite](https://github.com/whatever125/rucn-geosite), поэтому
+> диплинку не нужно обновляться, чтобы получить новые данные.
 
-GitHub Actions в этом репозитории ежедневно (в 05:00 UTC, после сборки
-`rucn-geoip` и `rucn-geosite`):
+GitHub Actions в этом репозитории ежедневно (по расписанию в 05:00 UTC,
+после сборки `rucn-geoip` и `rucn-geosite`):
 - обновляет `LastUpdated` и пересобирает base64-диплинки для Happ и INCY;
 - коммитит изменённые `*.JSON`/`*.DEEPLINK`;
 - **переписывает секцию ссылок в этом README** — актуальные диплинк и его
